@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+<h2>Таблица для сортировки</h2>
+<table>
+    <tr>
+        {% for t in title %}
+            <th>{{ t }}</th>
+        {% endfor %}
+    </tr>
+    {% for t in table %}
+        <tr>
+            {% for one in t %}
+                <td>{{ one }}</td>
+            {% endfor %}
+        </tr>
+
+    {% endfor %}
+</table>
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ forma }}
+    <input type="submit" value="Search">
+</form>
+</body>
+</html>
